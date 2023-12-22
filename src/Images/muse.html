@@ -3,37 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tasks</title>
-    <link rel="stylesheet" href="/UGR-7382-14/src/css/styles.css" />
+    <title>Muse</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .carousel-container {
+        position: relative;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        gap: 4rem;
+      }
+
+      .carousel-slide {
+        display: flex;
+        align-items: center;
+        min-width: 600px;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-video {
+        width: 50%;
+        height: 300px;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+
+      .carousel-text {
+        padding: 1rem;
+        width: 50%;
+      }
+
+      #muse-title {
+        font-size: 2.5rem;
+        margin-bottom: 5rem;
+        text-align: left;
+        margin-left: 1rem;
+        margin-top: 3rem;
+      }
+
+      .hamburger-menu {
+        cursor: pointer;
+        display: none;
+      }
+
+      .hamburger-menu span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: magenta;
+        margin: 6px 0;
+      }
+
+      .site-navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 35%;
+        background-color: #ffffff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
+
+      .site-navigation.open {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(0);
+      }
+
+      .site-navigation a {
+        text-decoration: none;
+        color: magenta;
+        font-size: 16px;
+        padding: 12px 24px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      .site-navigation a:hover {
+        color: rgb(250, 117, 250);
+      }
+
+      @media screen and (max-width: 1280px) {
+        .hamburger-menu {
+          display: block;
+        }
+        .site-navigation {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="logo-container">
-        <a href="index.html" class="home-link">
-          <img src="logo.png" alt="Logo" class="logo-image" />
+  <body class="bg-gray-100">
+    <header class="bg-white shadow-md py-4">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="logo.png" alt="Logo" class="h-8 mr-2" />
         </a>
+
+        <div class="hamburger-menu lg:hidden">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="site-navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="muse.html">Muse</a></li>
+          </ul>
+        </nav>
+
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-4">
+            <li>
+              <a href="index.html" class="text-gray-700 hover:text-pink-500"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="text-gray-700 hover:text-pink-500"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="tasks.html" class="text-gray-700 hover:text-pink-500"
+                >Tasks</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="text-gray-700 hover:text-pink-500"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="muse.html" class="text-gray-700 hover:text-pink-500"
+                >Muse</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav class="site-navigation">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="tasks.html" class="nav-link">Tasks</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="muse.html" class="nav-link">Muse</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <main id="main-content-muse">
-      <section id="muse-section">
-        <h1 id="muse-title">Creative Inspirations and Musings</h1>
+    <main id="main-content-muse" class="py-10">
+      <section id="muse-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 id="muse-title" class="text-4xl font-bold text-center mb-8">
+          Creative Inspirations and Musings
+        </h1>
+
         <div class="carousel-container">
           <div class="carousel">
             <div class="carousel-slide" id="carousel-muse-1">
               <object
                 data="https://www.youtube.com/embed/RzkD_rTEBYs"
                 type="text/html"
-                class="carousel-image"
+                class="w-full h-auto rounded-lg"
               >
                 <param
                   name="src"
@@ -51,8 +195,8 @@
                   modern browser to view the content.
                 </p>
               </object>
-              <div class="carousel-text">
-                <h2>Inspiring Tech Talk</h2>
+              <div class="carousel-text mt-4">
+                <h2 class="text-lg font-semibold">Inspiring Tech Talk</h2>
                 <p>
                   A captivating tech talk that discusses the future of AI and
                   its impact on society.
@@ -64,7 +208,7 @@
               <object
                 data="https://www.youtube.com/embed/wLlL46pYcg4"
                 type="text/html"
-                class="carousel-image"
+                class="w-full h-auto rounded-lg"
               >
                 <param
                   name="src"
@@ -85,8 +229,10 @@
                   modern browser to view the content.
                 </p>
               </object>
-              <div class="carousel-text">
-                <h2>Documentary on Software Innovation</h2>
+              <div class="carousel-text mt-4">
+                <h2 class="text-lg font-semibold">
+                  Documentary on Software Innovation
+                </h2>
                 <p>
                   An inspiring documentary that delves into software innovations
                   that changed the world.
@@ -94,44 +240,38 @@
               </div>
             </div>
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-control prev">← Prev</button>
-            <button class="carousel-control next">Next →</button>
-          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="social-media-links">
-        <a
-          href="https://t.me/rurudaya"
-          class="telegram-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="telegram-icon.jpg" alt="Telegram" class="social-icon" />
-        </a>
-        <a
-          href="https://github.com/ruhamayohannes"
-          class="github-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="github-icon.jpg" alt="GitHub" class="social-icon" />
-        </a>
-        <a
-          href="https://X.com/rurudaya"
-          class="x-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="x-icon.png" alt="X Profile" class="social-icon" />
-        </a>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto text-center px-4">
+        <div class="flex justify-center space-x-4 mb-4">
+          <a
+            href="https://t.me/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="telegram-icon.jpg" alt="Telegram" class="h-6" />
+          </a>
+          <a
+            href="https://github.com/ruhamayohannes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="github-icon.jpg" alt="GitHub" class="h-6" />
+          </a>
+          <a
+            href="https://X.com/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="x-icon.png" alt="X Profile" class="h-6" />
+          </a>
+        </div>
+        <p>&copy; 2023 Ruhama Yohannes, All rights reserved.</p>
       </div>
-      <p class="copyright-text">
-        &copy; 2023 Ruhama Yohannes, All rights reserved.
-      </p>
     </footer>
+    <script src="JS/script.js"></script>
   </body>
 </html>

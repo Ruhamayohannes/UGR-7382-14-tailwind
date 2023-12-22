@@ -4,38 +4,177 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tasks</title>
-    <link rel="stylesheet" href="/UGR-7382-14/src/css/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="logo-container">
-        <a href="index.html" class="home-link">
-          <img src="logo.png" alt="Logo" class="logo-image" />
-        </a>
-      </div>
-      <nav class="site-navigation">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="tasks.html" class="nav-link">Tasks</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="muse.html" class="nav-link">Muse</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <main id="main-content-tasks">
-      <section id="tasks-section">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .carousel-container {
+        position: relative;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+      }
+
+      .carousel-slide {
+        display: flex;
+        align-items: center;
+        min-width: 600px;
+        max-width: 600px;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-slide img {
+        width: 50%;
+        object-fit: cover;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+
+      .carousel-text {
+        padding: 1rem;
+        width: 50%;
+      }
+
+      #tasks-title {
+        font-size: 2.5rem;
+        margin-bottom: 6rem;
+        text-align: left;
+        width: 100%;
+        margin-top: 3rem;
+        margin-left: 2rem;
+      }
+
+      .hamburger-menu {
+        cursor: pointer;
+        display: none;
+      }
+
+      .hamburger-menu span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: magenta;
+        margin: 6px 0;
+      }
+
+      .site-navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 35%;
+        background-color: #ffffff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
+
+      .site-navigation.open {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(0);
+      }
+
+      .site-navigation a {
+        text-decoration: none;
+        color: magenta;
+        font-size: 16px;
+        padding: 12px 24px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      .site-navigation a:hover {
+        color: rgb(250, 117, 250);
+      }
+
+      @media screen and (max-width: 1280px) {
+        .hamburger-menu {
+          display: block;
+        }
+        .site-navigation {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100">
+    <header class="bg-white shadow-md py-4">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="logo.png" alt="Logo" class="h-8 mr-2" />
+        </a>
+
+        <div class="hamburger-menu lg:hidden">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="site-navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="muse.html">Muse</a></li>
+          </ul>
+        </nav>
+
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-4">
+            <li>
+              <a href="index.html" class="text-gray-700 hover:text-pink-500"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="text-gray-700 hover:text-pink-500"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="tasks.html" class="text-gray-700 hover:text-pink-500"
+                >Tasks</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="text-gray-700 hover:text-pink-500"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="muse.html" class="text-gray-700 hover:text-pink-500"
+                >Muse</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content-tasks" class="py-10">
+      <section id="tasks-section" class="text-center">
         <h1 id="tasks-title">Highlighted Tasks and Projects</h1>
 
         <div class="carousel-container">
           <div class="carousel">
             <div class="carousel-slide" id="carousel-task-1">
-              <img
-                src="task1.png"
-                alt="Web Development for E-Commerce"
-                class="carousel-image"
-              />
+              <img src="task1.png" alt="Web Development for E-Commerce" />
               <div class="carousel-text">
                 <h2>Web Development for E-Commerce</h2>
                 <p>
@@ -45,12 +184,9 @@
                 </p>
               </div>
             </div>
+
             <div class="carousel-slide" id="carousel-task-2">
-              <img
-                src="task2.png"
-                alt="Mobile App for Health Tracking"
-                class="carousel-image"
-              />
+              <img src="task2.png" alt="Mobile App for Health Tracking" />
               <div class="carousel-text">
                 <h2>Mobile App for Health Tracking</h2>
                 <p>
@@ -60,12 +196,9 @@
                 </p>
               </div>
             </div>
+
             <div class="carousel-slide" id="carousel-task-3">
-              <img
-                src="task3.jpg"
-                alt="Data Analysis Project"
-                class="carousel-image"
-              />
+              <img src="task3.jpg" alt="Data Analysis Project" />
               <div class="carousel-text">
                 <h2>Data Analysis Project</h2>
                 <p>
@@ -75,12 +208,9 @@
                 </p>
               </div>
             </div>
+
             <div class="carousel-slide" id="carousel-task-4">
-              <img
-                src="task4.jpg"
-                alt="Cloud Infrastructure Setup"
-                class="carousel-image"
-              />
+              <img src="task4.jpg" alt="Cloud Infrastructure Setup" />
               <div class="carousel-text">
                 <h2>Cloud Infrastructure Setup</h2>
                 <p>
@@ -90,12 +220,9 @@
                 </p>
               </div>
             </div>
+
             <div class="carousel-slide" id="carousel-task-5">
-              <img
-                src="task5.png"
-                alt="AI Chatbot Development"
-                class="carousel-image"
-              />
+              <img src="task5.png" alt="AI Chatbot Development" />
               <div class="carousel-text">
                 <h2>AI Chatbot Development</h2>
                 <p>
@@ -106,45 +233,37 @@
               </div>
             </div>
           </div>
-
-          <div class="carousel-controls">
-            <button class="carousel-control prev">← Prev</button>
-            <button class="carousel-control next">Next →</button>
-          </div>
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="social-media-links">
-        <a
-          href="https://t.me/rurudaya"
-          class="telegram-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="telegram-icon.jpg" alt="Telegram" class="social-icon" />
-        </a>
-        <a
-          href="https://github.com/ruhamayohannes"
-          class="github-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="github-icon.jpg" alt="GitHub" class="social-icon" />
-        </a>
-        <a
-          href="https://X.com/rurudaya"
-          class="x-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="x-icon.png" alt="X Profile" class="social-icon" />
-        </a>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto text-center px-4">
+        <div class="flex justify-center space-x-4 mb-4">
+          <a
+            href="https://t.me/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="telegram-icon.jpg" alt="Telegram" class="h-6" />
+          </a>
+          <a
+            href="https://github.com/ruhamayohannes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="github-icon.jpg" alt="GitHub" class="h-6" />
+          </a>
+          <a
+            href="https://X.com/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="x-icon.png" alt="X Profile" class="h-6" />
+          </a>
+        </div>
+        <p>&copy; 2023 Ruhama Yohannes, All rights reserved.</p>
       </div>
-      <p class="copyright-text">
-        &copy; 2023 Ruhama Yohannes, All rights reserved.
-      </p>
     </footer>
+    <script src="JS/script.js"></script>
   </body>
 </html>

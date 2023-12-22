@@ -3,43 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tasks</title>
-    <link rel="stylesheet" href="/UGR-7382-14/src/css/styles.css" />
+    <title>Contact</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hamburger-menu {
+        cursor: pointer;
+        display: none;
+      }
+
+      .hamburger-menu span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: magenta;
+        margin: 6px 0;
+      }
+
+      .site-navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 35%;
+        background-color: #ffffff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
+
+      .site-navigation.open {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(0);
+      }
+
+      .site-navigation a {
+        text-decoration: none;
+        color: magenta;
+        font-size: 16px;
+        padding: 12px 24px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      .site-navigation a:hover {
+        color: rgb(250, 117, 250);
+      }
+
+      @media screen and (max-width: 1280px) {
+        .hamburger-menu {
+          display: block;
+        }
+        .site-navigation {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="logo-container">
-        <a href="index.html" class="home-link">
-          <img src="logo.png" alt="Logo" class="logo-image" />
+  <body class="bg-gray-100">
+    <header class="bg-white shadow-md py-4">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="logo.png" alt="Logo" class="h-8 mr-2" />
         </a>
+
+        <div class="hamburger-menu lg:hidden">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="site-navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="muse.html">Muse</a></li>
+          </ul>
+        </nav>
+
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-4">
+            <li>
+              <a href="index.html" class="text-gray-700 hover:text-pink-500"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="text-gray-700 hover:text-pink-500"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="tasks.html" class="text-gray-700 hover:text-pink-500"
+                >Tasks</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="text-gray-700 hover:text-pink-500"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="muse.html" class="text-gray-700 hover:text-pink-500"
+                >Muse</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav class="site-navigation">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="tasks.html" class="nav-link">Tasks</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="muse.html" class="nav-link">Muse</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <main id="main-content-contact">
-      <section id="contact-section">
-        <h1 id="contact-title">Get in Touch</h1>
-        <div class="flex-container">
-          <img src="contact.png" alt="Contact" id="contact-image" />
-          <div class="card" id="contact-container">
-            <p>
+    <main class="py-8">
+      <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold mb-4">Get in Touch</h1>
+        <div class="flex flex-wrap md:flex-nowrap">
+          <img
+            src="contact.png"
+            alt="Contact"
+            class="md:w-1/2 w-full h-auto rounded mb-4 md:mb-0 md:mr-4"
+          />
+          <div class="md:w-1/2 w-full">
+            <p class="mb-4">
               I'm always open to discussing new projects, creative ideas, or
               opportunities to be part of your visions. Feel free to contact me
               using the details below or send a message directly through this
               page.
             </p>
-            <div id="contact-details">
+            <div id="contact-details" class="mb-4">
               <p>
                 <strong>Email:</strong>
-                <a href="mailto:ruhamayohannesm@gmail.com" target="_blank"
+                <a
+                  href="mailto:ruhamayohannesm@gmail.com"
+                  class="text-blue-500 hover:text-blue-700"
                   >ruhamayohannesm@gmail.com</a
                 >
               </p>
@@ -48,8 +154,7 @@
                 <strong>Telegram:</strong>
                 <a
                   href="https://t.me/rurudaya"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  class="text-blue-500 hover:text-blue-700"
                   >Contact me on Telegram</a
                 >
               </p>
@@ -57,75 +162,96 @@
                 <strong>GitHub:</strong>
                 <a
                   href="https://github.com/ruhamayohannes"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  class="text-blue-500 hover:text-blue-700"
                   >ruhamayohannes on GitHub</a
                 >
               </p>
             </div>
-            <form id="contact-form">
-              <label for="name">Your Name:</label>
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700"
+                  >Your Name:</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-pink-300 focus:ring focus:ring-pink-200 focus:ring-opacity-50"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700"
+                  >Your Email:</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your email"
+                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-pink-300 focus:ring focus:ring-pink-200 focus:ring-opacity-50"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700"
+                  >Message:</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your message"
+                  rows="4"
+                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-pink-300 focus:ring focus:ring-pink-200 focus:ring-opacity-50"
+                ></textarea>
+              </div>
+
               <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your name"
-              /><br />
-
-              <label for="email">Your Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your email"
-              /><br />
-
-              <label for="message">Message:</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your message"
-                rows="4"
-              ></textarea
-              ><br />
-
-              <input type="submit" value="Send Message" />
+                type="submit"
+                value="Send Message"
+                class="bg-pink-500 text-white rounded-md px-4 py-2 hover:bg-pink-600 cursor-pointer"
+              />
             </form>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="social-media-links">
-        <a
-          href="https://t.me/rurudaya"
-          class="telegram-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="telegram-icon.jpg" alt="Telegram" class="social-icon" />
-        </a>
-        <a
-          href="https://github.com/ruhamayohannes"
-          class="github-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="github-icon.jpg" alt="GitHub" class="social-icon" />
-        </a>
-        <a
-          href="https://X.com/rurudaya"
-          class="x-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="x-icon.png" alt="X Profile" class="social-icon" />
-        </a>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="flex justify-center space-x-4 mb-4">
+          <a
+            href="https://t.me/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="telegram-icon.jpg" alt="Telegram" class="h-6" />
+          </a>
+          <a
+            href="https://github.com/ruhamayohannes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="github-icon.jpg" alt="GitHub" class="h-6" />
+          </a>
+          <a
+            href="https://X.com/rurudaya"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="x-icon.png" alt="X Profile" class="h-6" />
+          </a>
+        </div>
+        <p>&copy; 2023 Ruhama Yohannes, All rights reserved.</p>
       </div>
-      <p class="copyright-text">
-        &copy; 2023 Ruhama Yohannes, All rights reserved.
-      </p>
     </footer>
+    <script src="JS/script.js"></script>
   </body>
 </html>
