@@ -7,3 +7,14 @@ module.exports = {
   plugins: [],
 }
 
+module.exports = {
+  purge: ['./src/**/*.{html,js}'], // Adjust as needed for your project files
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};
