@@ -1,17 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.querySelector('.hamburger-menu');
-    var navigation = document.querySelector('.site-navigation');
-    var navLinks = document.querySelectorAll('.site-navigation a');
+    var menuBtn = document.getElementById('menu-btn');
+    var mobileNav = document.getElementById('mobile-nav');
 
-    
-    hamburger.addEventListener('click', function() {
-        navigation.classList.toggle('open');
-    });
-
-    
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            navigation.classList.remove('open');
-        });
+    menuBtn.addEventListener('click', function() {
+        mobileNav.classList.toggle('translate-x-0');
+        mobileNav.classList.toggle('translate-x-full');
     });
 });
